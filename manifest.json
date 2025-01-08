@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Button Extension",
+  "version": "1.0",
+  "description": "Extension to interact with webpage buttons",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"  // Ensures script runs after DOM is fully loaded
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png"
+  }
+}
